@@ -1,3 +1,5 @@
+// ============================     HOMEWORK #3        ============================
+
 // ========= first task =========
 
 let yourName = prompt("What's your name?");
