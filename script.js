@@ -1,100 +1,72 @@
-// ============================     HOMEWORK #3        ============================
+// ============================     HOMEWORK #4       ============================
 
-// ========= first task =========
+let bornYear = prompt("When you were born?");
 
-let yourName = prompt("What's your name?");
-while (yourName === "" || yourName === null) {
-  yourName = prompt("What's your name?");
+while (
+  ((bornYear <= 1900 || bornYear >= 2023) && bornYear !== null) ||
+  isNaN(bornYear)
+) {
+  bornYear = prompt("When you were born? (form 1900 to 2023 year)");
+}
+if (bornYear === null) {
+  alert("We're sorry you didn't want to enter to birth year");
+  bornYear = "Nothing";
 }
 
-alert(`Hello, ${yourName}! How are you?`);
+let yourCity = prompt("Where do you live?");
 
-// ========= second task =========
-
-let a = prompt("Enter first number");
-
-while (a === "" || isNaN(a)) {
-  a = prompt("Enter NUMBER");
+while (!isNaN(yourCity) && yourCity !== null) {
+  yourCity = prompt("Where do you live?(It isn't string)");
 }
-
-let b = prompt("Enter second number");
-
-while (b === "" || isNaN(b)) {
-  b = prompt("Enter NUMBER");
+if (yourCity === null) {
+  alert("We're sorry you didn't want to enter to your city");
+  yourCity = "Nothing";
+} else {
+  yourCity = yourCity.toLowerCase();
 }
-
-const arithmeticOperation = prompt(
-  "Choose, what you want to do with numbers? \n1. + \n2. - \n3. * \n4. /"
-);
-
-switch (arithmeticOperation) {
-  case "1":
-    alert(`${a} + ${b} = ${+a + +b}`);
+switch (yourCity) {
+  case "kiyv":
+    yourCity = "capital Ukraine";
     break;
-  case "2":
-    alert(`${a} - ${b} = ${+a - +b}`);
+  case "london":
+    yourCity = "capital England";
     break;
-  case "3":
-    alert(`${a} * ${b} = ${+a * +b}`);
-    break;
-  case "4":
-    if (+b === 0) {
-      alert("You cannot divide by zero!");
-    } else {
-      alert(`${a} / ${b} = ${+a / +b}`);
-    }
+  case "washington":
+    yourCity = "capital USA";
     break;
   default:
-    alert("No such item!");
+    const size = yourCity.lenght;
+    yourCity =
+      "city " + yourCity.slice(0, 1).toUpperCase() + yourCity.slice(1, size);
 }
 
-// ========= third task =========
+let favoriteSport = prompt("What's your favorite sport?");
 
-const valueOne = prompt("Enter first value");
-const valueTwo = prompt("Enter second value");
-
-const res = valueOne === valueTwo ? true : false;
-alert(res);
-
-// ========= fourth task =========
-a = prompt("Enter first number");
-
-while (a === "" || isNaN(a)) {
-  a = prompt("Enter NUMBER");
+while (!isNaN(favoriteSport) && favoriteSport !== null) {
+  favoriteSport = prompt("What's your favorite sport?(It isn't string)");
+}
+if (favoriteSport === null) {
+  alert("We're sorry you didn't want to enter to your favorite sport");
+  favoriteSport = "Nothing";
+} else {
+  favoriteSport = favoriteSport.toLowerCase();
 }
 
-b = prompt("Enter second number");
-
-while (b === "" || isNaN(b)) {
-  b = prompt("Enter NUMBER");
+switch (favoriteSport) {
+  case "basketball":
+    favoriteSport = "Michael Jordan";
+    break;
+  case "football":
+    favoriteSport = "Leo Messi";
+    break;
+  case "boxing":
+    favoriteSport = "Vasiliy Lomachenko";
+  default:
+    favoriteSport = "Champion";
 }
 
-let c = prompt("Enter third number");
-
-while (c === "" || isNaN(c)) {
-  c = prompt("Enter NUMBER");
-}
-
-alert(`Arithmetic average(${a}, ${b}, ${c}) = (${(+a + +b + +c) / 3})`);
-
-// ========= fiveth task =========
-
-number = prompt("Enter number(five symbols)");
-
-while (number === "" || isNaN(number)) {
-  number = prompt("Enter NUMBER of five symbols");
-}
-let one = number % 10000;
-one = (number - one) / 10000;
-let two = number % 1000;
-two = (number - two) / 1000;
-two = two - one * 10;
-let three = number % 100;
-three = (number - three) / 100;
-three = three - (one * 100 + two * 10);
-let four = number % 10;
-four = (number - four) / 10;
-four = four - (one * 1000 + two * 100 + three * 10);
-let five = number % 10;
-
-alert(`${number} = ${one} ${two} ${three} ${four} ${five}`);
+alert(
+  `Your age: ${
+    2023 - bornYear
+  }\nYou live in the ${yourCity}\nCool!You want to will be a ${favoriteSport}`
+);
