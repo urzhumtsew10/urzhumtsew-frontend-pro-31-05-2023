@@ -6,10 +6,19 @@ console.log(numOrStr);
 switch (numOrStr) {
   case null:
     console.log("ви відмінили");
-  case numOrStr.trim() === "":
-    console.log("Empty String");
-  case isNaN(+numOrStr):
-    console.log("number is Ba_NaN");
+    break;
   default:
-    console.log("OK!");
+    switch (numOrStr.trim()) {
+      case "":
+        console.log("Empty String");
+        break;
+      default:
+        switch (isNaN(+numOrStr)) {
+          case true:
+            console.log(" number is Ba_NaN");
+            break;
+          default:
+            console.log("OK!");
+        }
+    }
 }
